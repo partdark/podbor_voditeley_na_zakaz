@@ -1,11 +1,12 @@
 ﻿
 
+namespace podbor_voditeley_na_zakaz;
 
 public class Program
 {
     public const int Count = 5;
-    public const int N = 5;
-    public const int M = 5;
+    public  int N = 1000;
+    public  int M = 1000;
     private static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");

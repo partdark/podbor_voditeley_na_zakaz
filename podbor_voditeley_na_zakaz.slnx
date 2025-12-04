@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="podbor_voditeley_na_zakaz/podbor_voditeley_na_zakaz.csproj" />
+  <Project Path="Tests/Tests.csproj" Id="4efaf9b0-f7ac-4eb5-a15c-da10783cf9d2" />
 </Solution>
