@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "podbor_voditeley_na_zakaz": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
