@@ -1,4 +1,4 @@
-﻿
+﻿using BenchmarkDotNet.Running;
 
 namespace podbor_voditeley_na_zakaz;
 
@@ -9,7 +9,8 @@ public class Program
     public  int M = 1000;
     private static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        BenchmarkRunner.Run<BenchmarkFinding>();
+        Console.ReadKey();
     }
 
     public record struct Point(int X, int Y);
@@ -23,6 +24,7 @@ public class Program
 
     public List<Driver> FindNearest_1(Order order, List<Driver> drivers)
     {
+     
         return drivers.Select(
             driver => new
             {
@@ -37,6 +39,10 @@ public class Program
 
     public List<Driver> FindNearest_2(Order order, List<Driver> drivers)
     {
+        if (drivers.Count == 0)
+        {
+            return new List<Driver>();
+        }
         var queue = new PriorityQueue<Driver, double>();
 
         foreach (var driver in drivers)
@@ -55,6 +61,10 @@ public class Program
 
     public List<Driver> FindNearest_3(Order order, List<Driver> drivers)
     {
+        if (drivers.Count == 0)
+        {
+            return new List<Driver>();
+        }
         var targetDriversPerCell = Count; 
         var mapArea = (double)M * N;
         var targetCellCount = Math.Max(1.0,(double) drivers.Count / targetDriversPerCell);
