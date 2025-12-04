@@ -32,8 +32,23 @@ public class Program
             .ToList();
     }
 
+    public List<Driver> FindNearest_2(Order order, List<Driver> drivers)
+    {
+        var queue = new PriorityQueue<Driver, double>();
 
+        foreach (var driver in drivers)
+        {
+            var distance = CalculateDustanceSq(order.Location, driver.CurrentLocation);
+            queue.Enqueue(driver, -distance);
 
+            if (queue.Count > Count)
+            {
+                queue.Dequeue();
+            }
+
+        }
+        return queue.UnorderedItems.Select(i => i.Element).Reverse().ToList();
+    }
 
 }
 
